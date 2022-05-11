@@ -1,0 +1,71 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- -->
+    <div class="mt-5">
+      <h2><b class="text-center">All Products</b></h2>
+    </div>
+    <!-- -->
+    <table class="table table-striped table-hover">
+      <thead>
+          <tr>
+               <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Date of Create</th>
+              <th>Date of Update</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody *ngIf="products">
+          <tr *ngFor="let p of products">
+              <td>{{p?.id}}</td>
+              <td>{{p?.name}}</td>
+              <td>${{p?.price}}</td>
+              <td>{{p?.createdAt | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+              <td>{{p?.updatedAt | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+              <td>
+                <a href="detail-product/{{p?.id}}" class="btn btn-info text-white">View</a>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+   </div>
+    <!-- -->
+   <div class="col-lg-4 mt-5">
+        <div class="col-md-12 left-box">
+          <div class="card mt-5 mb-5">
+              <div class="body search">
+                  <div class="input-group m-b-0">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search"></i></span>
+                      </div>
+                      <input type="search" required="" name="keyword" id="keyword" [(ngModel)]="keyword"
+                               class="form-control" (click)="searchEmployees()" placeholder="Search products...">
+                  </div>
+              </div>
+          </div>
+          <div class="card">
+              <div class="header">
+                  <h4 class="text-secondary text-center mt-3 mb-2">Categories</h4>
+              </div>
+              <div class="body widget">
+                  <ul class="list-group">
+                    <li class="list-group-item">AWS Amazon ECS</li>
+                    <li class="list-group-item">AWS Amazon DynamoDB</li>
+                    <li class="list-group-item">AWS Amazon RDS</li>
+                    <li class="list-group-item">AWS Amazon Lambda</li>
+                    <li class="list-group-item">AWS Amazon Connect</li>
+                    <li class="list-group-item">AWS Amazon S3</li>
+                    <li class="list-group-item">AWS Amazon EC2</li>
+                    <li class="list-group-item">AWS Amazon VPV</li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+     <!-- -->
+  </div>
+</div>
+
+

@@ -1,0 +1,57 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Product Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/all-products">All Products
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#addProductModal" data-toggle="modal">Add Product</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <!-- Add Modal HTML -->
+ <div id="addProductModal" class="modal fade mt-1">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <form #addForm="ngForm" (ngSubmit)="onAddProduct(addForm)">
+              <div class="modal-header">
+                  <h4 class="modal-title">Add New Product</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-group">
+                      <input type="text" id="name" name="name" ngModel class="form-control" placeholder="Name" required="">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="price" name="price" ngModel class="form-control" placeholder="Price" required>
+                  </div>
+                  <div class="form-group">
+                    <select id="isInStock" name="isInStock" ngModel class="form-control">
+                        <option value="">Is In Stock?</option>
+                        <option value="true">YES</option>
+                        <option value="false">NO</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <textarea id="description" name="description" ngModel class="form-control" placeholder="Your description here...." rows="4" required></textarea>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                  <input [disabled]="!addForm.valid" type="submit" class="btn btn-success" value="Submit">
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

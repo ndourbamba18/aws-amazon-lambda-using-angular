@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-aws-lambda"
+    }
+  },
+  "defaultProject": "angular-aws-lambda",
+  "cli": {
+    "analytics": "6de970fd-9565-4b31-ae6e-f9ca2fdf16fa"
+  }
 }
